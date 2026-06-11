@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #e86e8c; /* Rosa sofisticado */
+    --primary-dark: #61212D;
+    --primary-light: #fce4ec;
+    --gold: #FF8DA1;
+    --text-dark: #2d2d2d;
+    --text-light: #8d8d8d;
+    --bg-light: #fff8fa;
+}
+
+/* FONTS */
+.font-poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.font-playfair {
+    font-family: 'Playfair Display', serif;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse-scale {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.animate-slide-in-up {
+    animation: slideInUp 0.6s ease-out;
+}
+
+/* PRODUCT CARD */
+.product-card {
+    background: #fff;
+    border-radius: 18px;
+    border: 1.5px solid var(--primary-light);
+    box-shadow: 0 6px 32px 0 rgba(232, 110, 140, 0.08);
+    transition: box-shadow 0.3s, transform 0.3s;
+    padding: 18px 12px 18px 12px;
+}
+
+.product-card:hover {
+    box-shadow: 0 12px 40px 0 rgba(212, 175, 55, 0.13);
+    border-color: var(--gold);
+    transform: translateY(-6px) scale(1.03);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 12px;
+    border: 1.5px solid var(--primary-light);
+    box-shadow: 0 2px 12px 0 rgba(232, 110, 140, 0.07);
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.1);
+}
+
+.product-info {
+    padding: 16px;
+}
+
+.product-name {
+    color: var(--primary-dark);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.product-description {
+    color: var(--text-light);
+    font-size: 15px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-price {
+    color: var(--gold);
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.btn-add-to-cart {
+    background: linear-gradient(90deg, var(--primary), var(--gold));
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 2px 8px 0 rgba(232, 110, 140, 0.10);
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    padding: 10px 22px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-add-to-cart:hover {
+    background: linear-gradient(90deg, var(--gold), var(--primary));
+    color: #fff;
+    box-shadow: 0 6px 18px 0 rgba(212, 175, 55, 0.13);
+    transform: scale(1.05);
+}
+
+/* BUTTONS */
+.btn-primary {
+    background: linear-gradient(90deg, var(--primary), var(--gold));
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 2px 8px 0 rgba(232, 110, 140, 0.10);
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    padding: 10px 22px;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, var(--gold), var(--primary));
+    color: #fff;
+    box-shadow: 0 6px 18px 0 rgba(212, 175, 55, 0.13);
+    transform: scale(1.05);
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .product-card {
+        min-height: auto;
+    }
+
+    .product-image {
+        height: 150px;
+    }
+
+    .product-name {
+        font-size: 16px;
+    }
+
+    .product-description {
+        font-size: 12px;
+    }
+}
+
+/* CART ITEM */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    animation: slideInUp 0.3s ease-out;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.cart-item-price {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.cart-item-qty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 12px;
+}
+
+.qty-btn {
+    background: var(--bg-light);
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.qty-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.remove-btn {
+    background: #fee2e2;
+    color: var(--primary);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* TRANSITIONS */
+body {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* BADGE */
+.badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 16px;
+    padding: 4px 12px;
+}
+
+/* CATEGORY TITLE */
+.categoria-titulo {
+    font-size: 2rem;
+    color: var(--primary-dark);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.categoria-titulo::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 1.5rem;
+}
+
+/* SECTION TRANSITIONS */
+section {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* ============================================ */
+/* FIX - PRIORITY RULES */
+/* ============================================ */
+/*
+.product-card,
+.product-image,
+.product-info,
+.product-name,
+.product-description,
+.product-footer,
+.product-price,
+.btn-add-to-cart {
+    all: revert !important;
+}
+*/

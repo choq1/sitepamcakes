@@ -1,277 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./styles/output.css"> 
-    <title>Dev Burger - A melhor hamburgueria dev!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pam Cakes & Dôces - Araçatuba</title>
+    <link rel="stylesheet" href="./styles/output.css">
+    <link rel="stylesheet" href="./styles/custom.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="./scripts/main-final.js"></script>
 </head>
-<body>
+<body class="bg-gray-50 font-poppins">
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-3">
+                    <img src="./images/logopamcakes.png" alt="Logo" class="h-10 w-10 rounded-full">
+                    <span class="font-playfair text-xl text-gray-900">Pam Cakes & Doces</span>
+                </div>
+                <div class="hidden md:flex gap-8 text-gray-700 font-medium">
+                    <a href="#menu" class="hover:text-red-500 transition">Menu</a>
+                    <a href="#contato" class="hover:text-red-500 transition">Contato</a>
+                    <a href="#sobre" class="hover:text-red-500 transition">Sobre</a>
+                </div>
+                <button id="cart-btn" class="relative">
+                    <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-<!--HEADER-->
-   <header class="w-full h-[420px] bg-zinc-900 bg-home bg-cover bg-center"> 
-    <div class="w-full h-full flex flex-col justify-center items-center">
-        <img 
-        src="./Images/hamb-1.png" 
-        alt="Logo DevBurguer"
-        class="w-32 h-32 rounded-full shadow-lg hover:scale-110 duration-200"
-        />
+    <!-- HERO SECTION -->
+    <section class="relative bg-gradient-to-b from-[#414040] to-[#FDBCB4] text-white py-20 md:py-32">
+        <div class="absolute inset-0 opacity-20" style="background-image: url('./images/texture.png'); background-size: cover;"></div>
+        <div class="relative max-w-7xl mx-auto px-4 text-center">
+            <div class="mb-8 animate-fade-in">
+                <img src="./images/logopamcakes.png" alt="Logo" class="h-32 w-32 mx-auto rounded-full shadow-2xl border-4 border-red-500">
+            </div>
+            <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-4">Pam Cakes & Doces</h1>
+            <p class="text-lg text-gray-300 mb-2">Rua Goulart, 471 - Araçatuba - SP</p>
+            <p class="text-sm text-gray-300 mb-8">Sabor e qualidade em cada pedaço 🍰</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#menu" class="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-lg font-Open Sans transition transform hover:scale-105">
+                    Conheça o Menu
+                </a>
+                <a href="#contato" class="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-8 py-3 rounded-lg font-semibold transition">
+                    📞 Seg à Dom - 19:00 às 22:00
+                </a>
+            </div>
+        </div>
+    </section>
 
-        <h1 class="text-4xl mt-4 mb-2 font-bold text-white">
-            Dev Burger
-        </h1>
+    <!-- MENU SECTION -->
+    <section id="menu" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-Montserrat text-4xl md:text-5xl font-bold text-gray-900 mb-4">Conheça nosso menu</h2>
+                <p class="text-gray-600 text-lg">Produtos feitos com amor e ingredientes de qualidade</p>
+            </div>
 
-        <span class="text-white font-medium">Rua das Araucárias 190, Campinas - SP</span>
-       
-        <div class="bg-green-600 px-4 py-1 rounded-lg mt-5" id="date-span">
-            <span class="text-white font-medium">Seg á Dom - 08:00 as 22:00</span>
+            <!-- CATEGORIAS DINAMICAS -->
+            <div id="categorias-container" class="space-y-20">
+                <!-- Categorias serão inseridas aqui por JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE SECTION -->
+    <section id="sobre" class="bg-gradient-to-r from-red-50 to-pink-50 py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-Montserrat text-4xl font-semibold text-gray-900 mb-8">Sobre nós</h2>
+            <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                Na <span class="font-bold text-red-500">Pam Cakes & Doces</span>, cada brigadeiro, cada doce, cada experiência deve ser especial. 
+                Utilizamos ingredientes selecionados e técnicas cuidadosas para garantir a qualidade e o sabor incomparável em cada pedaço.
+            </p>
+            <p class="text-gray-700 text-lg leading-relaxed">
+                Somos especializados em brigadeiros artesanais, deliciosos doces no pote, brownies irresistíveis e a famosa Taça da Felicidade. 
+                Estamos localizados em Araçatuba, prontos para servir você com dedicação e amor ao que fazemos.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTATO SECTION -->
+    <section id="contato" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-Montserrat text-4xl font-semibold text-gray-900 mb-12 text-center">Fale com a gente</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <span class="text-3xl">📍</span>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">Localização</h3>
+                            <p class="text-gray-600">Rua Goulart, 471 - Araçatuba - SP</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="text-3xl">⏰</span>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">Horário de Funcionamento</h3>
+                            <p class="text-gray-600">Seg à Dom: 19:00 às 22:00</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="text-3xl">📞</span>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">Entre em contato</h3>
+                            <a href="https://wa.me/5517997839368" class="text-red-500 hover:text-red-600 font-semibold">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-red-500 to-red-600 rounded-xl p-8 text-white text-center">
+                    <h3 class="font-bold text-2xl mb-4">Pronto para pedir?</h3>
+                    <p class="mb-6">Entre em contato conosco pelo WhatsApp e faça seu pedido!</p>
+                    <a href="https://wa.me/5517997839368" class="inline-block bg-white text-red-500 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
+                        Abrir WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARRINHO MODAL -->
+    <div id="cart-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-end md:items-center md:justify-end">
+        <div class="bg-white w-full md:w-96 h-screen md:h-auto md:rounded-lg shadow-xl md:mr-4 md:mb-4 flex flex-col">
+            <div class="flex justify-between items-center p-6 border-b">
+                <h2 class="font-bold text-2xl">Seu Carrinho</h2>
+                <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="cart-items" class="flex-1 overflow-y-auto p-6">
+                <p class="text-gray-500 text-center">Carrinho vazio</p>
+            </div>
+            <div class="border-t p-6 space-y-4">
+                <div class="flex justify-between text-lg font-bold">
+                    <span>Total:</span>
+                    <span id="cart-total" class="text-red-500">R$ 0,00</span>
+                </div>
+                <button id="checkout-btn" class="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg font-bold transition">
+                    Finalizar Pedido
+                </button>
+            </div>
         </div>
     </div>
-   </header>
-<!--FIM HEADER--> 
- 
-   <h2 class="text-2xl md:text-3xl font-bold text-center mt-9 mb-6">
-    Conheça nosso menu
-   </h2> 
 
-   <!--INICIO MENU-->
-   <div id="menu">
-     
-     <main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
-      
-       <!--PRODUTO ITEM-->  
-       <div class="flex gap-2">
-        <img 
-          src="./Images/hamb-1.png" 
-          alt="Hamburguer Smash"
-          class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
-          />
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="mb-2">&copy; 2026 Pam Cakes & Doces. Todos os direitos reservados.</p>
+            <p class="text-gray-400">Feito com ❤️ em Araçatuba</p>
+        </div>
+    </footer>
 
-          <div>
-            <p class="font-bold">Hamburguer Smash</p>
-            <p class="text-sm">Pão levinho de fermentação natural da Trigou, burger 160g, queijo prato, alface americana, tomate e maionese da casa
-            </p>
-
-            <div class="flex items-center gap-2 justify-between mt-3">
-                <p class="font-bold text-lg">R$ 18.90</p>
-                <button 
-                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                  data-name="Hamburguer Smash"
-                  data-price="18.90">
-                  <i class="fa fa-cart-plus text-lg text-white"></i>
-                </button>
-            </div>
-
-          </div>
-          
-       </div>
-       <!--FIM PRODUTO ITEM-->
-
-       <!--PRODUTO ITEM-->  
-       <div class="flex gap-2">
-        <img 
-          src="./Images/hamb-2.png" 
-          alt="Hamburguer Duplo Bacon"
-          class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
-          />
-
-          <div>
-            <p class="font-bold">Hamburguer Duplo Bacon</p>
-            <p class="text-sm">Pão levinho de fermentação natural da Trigou, burger 190g, queijo prato, bacon duplo e maionese da casa.
-            </p>
-
-            <div class="flex items-center gap-2 justify-between mt-3">
-                <p class="font-bold text-lg">R$ 32.90</p>
-                <button 
-                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                  data-name="Hamburguer Duplo Bacon"
-                  data-price="32.90">
-                  <i class="fa fa-cart-plus text-lg text-white"></i>
-                </button>
-            </div>
-
-          </div>
-          
-       </div>
-       <!--FIM PRODUTO ITEM-->
-
-       <!--PRODUTO ITEM-->  
-       <div class="flex gap-2">
-        <img 
-          src="./Images/hamb-3.png" 
-          alt="Hamburguer Duplo"
-          class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
-          />
-
-          <div>
-            <p class="font-bold">Hamburguer Duplo</p>
-            <p class="text-sm">Pão levinho de fermentação natural da Trigou, burger duplo 190g, queijo prato e maionese da casa.
-            </p>
-
-            <div class="flex items-center gap-2 justify-between mt-3">
-                <p class="font-bold text-lg">R$ 35.90</p>
-                <button 
-                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                  data-name="Hamburguer Duplo"
-                  data-price="35.90">
-                  <i class="fa fa-cart-plus text-lg text-white"></i>
-                </button>
-            </div>
-
-          </div>
-          
-       </div>
-       <!--FIM PRODUTO ITEM-->
-
-       <!--PRODUTO ITEM-->  
-       <div class="flex gap-2">
-        <img 
-          src="./Images/hamb-4.png" 
-          alt="Hamburguer da Casa"
-          class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
-          />
-
-          <div>
-            <p class="font-bold">Hamburguer da Casa</p>
-            <p class="text-sm">Pão levinho de fermentação natural da Trigou, burger chicken 190g, cebola, alface americana, tomate e maionese da casa.
-            </p>
-
-            <div class="flex items-center gap-2 justify-between mt-3">
-                <p class="font-bold text-lg">R$ 30.90</p>
-                <button 
-                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                  data-name="Hamburguer da Casa"
-                  data-price="30.90">
-                  <i class="fa fa-cart-plus text-lg text-white"></i>
-                </button>
-            </div>
-
-          </div>
-          
-       </div>
-       <!--FIM PRODUTO ITEM-->
-
-       
-
-     </main>
-
-     <div class="mx-auto max-w-7xl px-2 my-2">
-        <h2 class="font-bold text-3xl">
-          Bebidas
-        </h2>
-     </div>
-
-     <!--GRID BEBIDAS-->
-     <div class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16" id="menu">
-       
-        <!--BEBIDA ITEM-->  
-       <div class="flex gap-2 w-full">
-        <img 
-          src="./Images/refri-1.png" 
-          alt="Coca lata"
-          class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
-          />
-
-          <div class="w-full">
-            <p class="font-bold">Coca lata</p>
-
-            <div class="flex items-center gap-2 justify-between mt-3">
-                <p class="font-bold text-lg">R$ 6.00</p>
-                <button 
-                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                  data-name="Coca lata"
-                  data-price="6.00">
-                  <i class="fa fa-cart-plus text-lg text-white"></i>
-                </button>
-            </div>
-
-          </div>
-          
-       </div>
-       <!--FIM BEBIDA ITEM-->
-
-       <!--BEBIDA ITEM-->  
-       <div class="flex gap-2 w-full">
-        <img 
-          src="./Images/refri-2.png" 
-          alt="Guarana lata"
-          class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300"
-          />
-
-          <div class="w-full">
-            <p class="font-bold">Guaraná lata</p>
-
-            <div class="flex items-center gap-2 justify-between mt-3">
-                <p class="font-bold text-lg">R$ 6.00</p>
-                <button 
-                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                  data-name="Guarana lata"
-                  data-price="6.00">
-                  <i class="fa fa-cart-plus text-lg text-white"></i>
-                </button>
-            </div>
-
-          </div>
-          
-       </div>
-       <!--FIM BEBIDA ITEM-->
-     
-    </div>
-     <!--FIM GRID BEBIDAS-->
-
-   </div>
-   
-   
-   <!--FIM MENU-->
-
-   <!--MODAL CART-->
-   <div 
-     class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden"
-     id="cart-modal"
-     >
-     
-     <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
-        <h2 class="text-center font-bold text-2xl mb-2">Meu carrinho</h2>
-
-        <div id="cart-items" class="flex justify-between mb-2 flex-col"></div>
-
-        <p class="font-bold">Total: <span id="cart-total">0.00</span></p>
-
-        <p class="font-bold mt-4">Endereço de entrega</p>
-        <input 
-          type="text"
-          placeholder="Digite seu endereço completo..."
-          id="address"
-          class="w-full border-2 p-1 rounded my-1"
-          />
-          <p class="text-red-500 hidden" id="address-warn">Digte seu endereço completo!</p>
-
-          <div class="flex items-center justify-between mt-5 w-full">
-            <button id="close-modal-btn">Fechar</button>
-            <button id="checkout-btn" class="bg-green-500 text-white px-4 py-1 rounded">Finalizar pedido</button>
-          </div>
-     </div>
- 
-   </div>
-   <!--FIM MODAL CART-->
-
-   <!--BUTTON CART FOOTER-->
-   <footer class="w-full bg-red-500 py-3 fixed bottom-0 z-40 flex items-center justify-center">
-    <button
-        class="flex itms-center gap-2 text-white font-bold"
-        id="cart-btn"
-        >
-        (<span id="cart-count">0</span>)
-        Veja meu carrinho
-        <i class="fa fa-cart-plus text-lg text-white"></i>
-    </button>
-   </footer> 
-   <!--FIM BUTTON CART FOOTER-->
-
-   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-   <script src="script.js"></script>
-
+    <script src="./scripts/main-final.js"></script>
 </body>
 </html>
